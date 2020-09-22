@@ -1,15 +1,14 @@
 {
   "expo": {
-    "name": "scratbypremier",
+    "name": "Scratby Premier",
     "slug": "scratbypremier",
-    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -17,8 +16,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "cover",
+        "backgroundColor": "#4c0743"
+      },
       "bundleIdentifier": "com.gerrytucker.scratbypremier"
+    },
+    "android": {
+      "splash": {
+        "hdpi": "./assets/splash-hdpi.png",
+        "ldpi": "./assets/splash-ldpi.png",
+        "mdpi": "./assets/splash-mdpi.png",
+        "xhdpi": "./assets/splash-xhdpi.png",
+        "xxhdpi": "./assets/splash-xxhdpi.png",
+        "xxxhdpi": "./assets/splash-xxxhdpi.png",
+        "resizeMode": "cover"
+      },
+      "package": "com.gerrytucker.scratbypremier"
     },
     "web": {
       "favicon": "./assets/favicon.png"
