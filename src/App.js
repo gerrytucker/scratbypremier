@@ -12,6 +12,7 @@ import {
   Icon,
   Text,
 } from "native-base";
+import ContentHeader from "./components/ContentHeader";
 import ProductsList from "./components/ProductsList";
 
 export default function App() {
@@ -23,7 +24,7 @@ export default function App() {
         </Body>
       </Header>
       <View style={{ flex: 1 }}>
-        <ProductsList />
+        <ProductsList title="Latest Products" />
       </View>
       <Footer>
         <FooterTab>
@@ -51,7 +52,7 @@ export default function App() {
           </Button>
         </FooterTab>
       </Footer>
-      <StatusBar style="auto" />
+      <StatusBar style="dark" />
     </Container>
   );
 }

@@ -1,16 +1,8 @@
 import React from "react";
-import { StyleSheet, FlatList } from "react-native";
-import {
-  List,
-  ListItem,
-  Thumbnail,
-  Text,
-  Left,
-  Body,
-  Right,
-  Icon,
-} from "native-base";
+import { View, StyleSheet, FlatList } from "react-native";
+import { ListItem, Image } from "react-native-elements";
 import { useFetch } from "../hooks";
+import ContentHeader from "./ContentHeader";
 
 const styles = StyleSheet.create({
   container: {
@@ -24,32 +16,34 @@ const styles = StyleSheet.create({
   },
 });
 
-const ProductsList = () => {
+const ProductsList = ({ title }) => {
   const [data, loading] = useFetch(
     "https://scratbygardencentre.com/wp/wp-json/premier/v2/products"
   );
 
+  renderItem = ({ item }) => (
+    <ListItem bottomDivider>
+      <Image
+        source={{ url: item.thumbnail_url }}
+        style={{ height: 56, width: 56 }}
+      />
+      <ListItem.Content>
+        <ListItem.Title>{item.name}</ListItem.Title>
+        <ListItem.Subtitle>£{item.regular_price}</ListItem.Subtitle>
+      </ListItem.Content>
+      <ListItem.Chevron />
+    </ListItem>
+  );
+
   return (
-    <List
-      dataArray={data}
-      keyExtractor={(data, index) => index.toString()}
-      renderItem={({ item }) => (
-        <ListItem thumbnail>
-          <Left>
-            <Thumbnail square source={{ uri: item.thumbnail_url }} />
-          </Left>
-          <Body>
-            <Text>{item.name}</Text>
-            <Text note numberOfLines={1}>
-              £{item.regular_price}
-            </Text>
-          </Body>
-          <Right>
-            <Icon name="ios-arrow-forward" />
-          </Right>
-        </ListItem>
-      )}
-    />
+    <View style={{ flex: 1 }}>
+      <FlatList
+        ListHeaderComponent={() => <ContentHeader title="Recent Products" />}
+        data={data}
+        keyExtractor={(data, index) => index.toString()}
+        renderItem={renderItem}
+      />
+    </View>
   );
 };
 
