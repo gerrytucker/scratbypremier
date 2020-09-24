@@ -1,8 +1,9 @@
 import React from "react";
+import { AppLoading } from "expo";
 import { View, StyleSheet, FlatList } from "react-native";
 import { ListItem, Image } from "react-native-elements";
 import { useFetch } from "../hooks";
-import ContentHeader from "./ContentHeader";
+import { ContentHeader } from "./ContentHeader";
 
 const styles = StyleSheet.create({
   container: {
@@ -35,10 +36,12 @@ const ProductsList = ({ title }) => {
     </ListItem>
   );
 
-  return (
+  return loading ? (
+    <AppLoading />
+  ) : (
     <View style={{ flex: 1 }}>
       <FlatList
-        ListHeaderComponent={() => <ContentHeader title="Recent Products" />}
+        ListHeaderComponent={() => <ContentHeader title="" />}
         data={data}
         keyExtractor={(data, index) => index.toString()}
         renderItem={renderItem}

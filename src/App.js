@@ -12,7 +12,6 @@ import {
   Icon,
   Text,
 } from "native-base";
-import ContentHeader from "./components/ContentHeader";
 import ProductsList from "./components/ProductsList";
 
 export default function App() {
