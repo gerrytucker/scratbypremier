@@ -19,7 +19,7 @@ const formatData = (data, numColumns) => {
     numberOfElementsLastRow !== numColumns &&
     numberOfElementsLastRow !== 0
   ) {
-    data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
+    data.push({ id: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
   }
   data = JSON.stringify(data);
