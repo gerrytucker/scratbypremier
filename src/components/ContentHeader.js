@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 });
 
 const ContentHeader = ({ title }) => {
-  return <Text style={styles.header}>{title}</Text>;
+  return <Text style={styles.header}>{{ title }}</Text>;
 };
 
 export default ContentHeader;

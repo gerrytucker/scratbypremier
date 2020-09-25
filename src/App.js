@@ -12,6 +12,7 @@ import {
   Icon,
   Text,
 } from "native-base";
+import CategoryGrid from "./components/CategoryGrid";
 import ProductsList from "./components/ProductsList";
 
 export default function App() {
@@ -23,7 +24,7 @@ export default function App() {
         </Body>
       </Header>
       <View style={{ flex: 1 }}>
-        <ProductsList title="Latest Products" />
+        <CategoryGrid />
       </View>
       <Footer>
         <FooterTab>

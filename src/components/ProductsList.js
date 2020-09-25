@@ -3,7 +3,6 @@ import { AppLoading } from "expo";
 import { View, StyleSheet, FlatList } from "react-native";
 import { ListItem, Image } from "react-native-elements";
 import { useFetch } from "../hooks";
-import { ContentHeader } from "./ContentHeader";
 
 const styles = StyleSheet.create({
   container: {
@@ -41,7 +40,6 @@ const ProductsList = ({ title }) => {
   ) : (
     <View style={{ flex: 1 }}>
       <FlatList
-        ListHeaderComponent={() => <ContentHeader title="" />}
         data={data}
         keyExtractor={(data, index) => index.toString()}
         renderItem={renderItem}
