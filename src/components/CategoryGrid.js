@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { useFetch } from "../hooks";
 
+const numColumns = 3;
 const formatData = (data, numColumns) => {
   const numberOfFullRows = Math.floor(data.length / numColumns);
 
@@ -19,7 +20,7 @@ const formatData = (data, numColumns) => {
     numberOfElementsLastRow !== numColumns &&
     numberOfElementsLastRow !== 0
   ) {
-    data.push({ id: `blank-${numberOfElementsLastRow}`, empty: true });
+    data.push({ id: { numberOfElementsLastRow }, empty: true });
     numberOfElementsLastRow++;
   }
   data = JSON.stringify(data);
@@ -27,7 +28,6 @@ const formatData = (data, numColumns) => {
   return data;
 };
 
-const numColumns = 3;
 const CategoryGrid = () => {
   const [data, loading] = useFetch(
     "https://scratbygardencentre.com/wp/wp-json/premier/v2/categories"

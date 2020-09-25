@@ -4,13 +4,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { styles } from "../styles";
 
-const Home = () => {
+const Categories = () => {
   return (
     <SafeAreaView style={styles.center}>
-      <Text>Home Screen</Text>
+      <Text>Categories Screen</Text>
       <StatusBar style="light-dark" />
     </SafeAreaView>
   );
 };
 
-export default Home;
+export default Categories;

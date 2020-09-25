@@ -4,13 +4,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { styles } from "../styles";
 
-const Home = () => {
+const Settings = () => {
   return (
     <SafeAreaView style={styles.center}>
-      <Text>Home Screen</Text>
+      <Text>Settings Screen</Text>
       <StatusBar style="light-dark" />
     </SafeAreaView>
   );
 };
 
-export default Home;
+export default Settings;
