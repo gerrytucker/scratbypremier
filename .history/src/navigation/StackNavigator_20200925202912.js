@@ -7,7 +7,7 @@ const Stack = createStackNavigator();
 
 const MainStackNavigator = () => {
     return (
-        <Stack.Navigator screenOptions={{headerBackTitle: "Back"}}>
+        <Stack.Navigator screenOptions={{headerBackTitle}}>
             <Stack.Screen name="Home" component={Home}/>
         </Stack.Navigator>
     )
