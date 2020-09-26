@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
+import { Text, View, FlatList } from "react-native";
+import { styles } from "../styles";
 
 const data = [
   { key: "A" },
@@ -35,11 +36,11 @@ const numColumns = 3;
 export default class CategoryGrid extends React.Component {
   renderItem = ({ item, index }) => {
     if (item.empty === true) {
-      return <View style={[styles.item, styles.itemInvisible]} />;
+      return <View style={[styles.gridItem, styles.gridItemInvisible]} />;
     }
     return (
-      <View style={styles.item}>
-        <Text style={styles.itemText}>{item.key}</Text>
+      <View style={styles.gridItem}>
+        <Text style={styles.gridItemText}>{item.key}</Text>
       </View>
     );
   };
@@ -55,24 +56,3 @@ export default class CategoryGrid extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginVertical: 20,
-  },
-  item: {
-    backgroundColor: "#4D243D",
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
-    margin: 1,
-    height: Dimensions.get("window").width / numColumns, // approximate a square
-  },
-  itemInvisible: {
-    backgroundColor: "transparent",
-  },
-  itemText: {
-    color: "#fff",
-  },
-});
