@@ -6,7 +6,7 @@ import { styles } from "../styles";
 
 const Settings = () => {
   return (
-    <SafeAreaView style={styles.center}>
+    <SafeAreaView style={styles.container}>
       <Text>Settings Screen</Text>
       <StatusBar style="light-dark" />
     </SafeAreaView>

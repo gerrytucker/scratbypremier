@@ -1,17 +1,21 @@
-// code by @spencercarli
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  Dimensions,
-  Image,
-  ActivityIndicator,
-} from "react-native";
-import { useFetch } from "../hooks";
+import { StyleSheet, Text, View, FlatList, Dimensions } from "react-native";
 
-const numColumns = 3;
+const data = [
+  { key: "A" },
+  { key: "B" },
+  { key: "C" },
+  { key: "D" },
+  { key: "E" },
+  { key: "F" },
+  { key: "G" },
+  { key: "H" },
+  { key: "I" },
+  { key: "J" },
+  { key: "K" },
+  { key: "L" },
+];
+
 const formatData = (data, numColumns) => {
   const numberOfFullRows = Math.floor(data.length / numColumns);
 
@@ -20,43 +24,37 @@ const formatData = (data, numColumns) => {
     numberOfElementsLastRow !== numColumns &&
     numberOfElementsLastRow !== 0
   ) {
-    data.push({ id: { numberOfElementsLastRow }, empty: true });
+    data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
   }
-  data = JSON.stringify(data);
-  console.log(data);
+
   return data;
 };
 
-const CategoryGrid = () => {
-  const [data, loading] = useFetch(
-    "https://scratbygardencentre.com/wp/wp-json/premier/v2/categories"
-  );
-
+const numColumns = 3;
+export default class CategoryGrid extends React.Component {
   renderItem = ({ item, index }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }
     return (
       <View style={styles.item}>
-        <Image source={{ uri: item.thumbnail }} />
+        <Text style={styles.itemText}>{item.key}</Text>
       </View>
     );
   };
 
-  return loading ? (
-    <ActivityIndicator />
-  ) : (
-    <FlatList
-      data={formatData(data, numColumns)}
-      style={styles.container}
-      renderItem={renderItem}
-      numColumns={numColumns}
-    />
-  );
-};
-
-export default CategoryGrid;
+  render() {
+    return (
+      <FlatList
+        data={formatData(data, numColumns)}
+        style={styles.container}
+        renderItem={this.renderItem}
+        numColumns={numColumns}
+      />
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
