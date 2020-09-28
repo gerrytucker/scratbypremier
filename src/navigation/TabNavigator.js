@@ -30,6 +30,10 @@ const BottomTabNavigator = () => {
           return <SimpleLineIcons name={iconName} size={size} color={color} />;
         },
       })}
+      tabBarOptions={{
+        activeTintColor: "#4c0743",
+        inactiveTintColor: "lightgray",
+      }}
     >
       <Tab.Screen name="Home" component={HomeStackNavigator} />
       <Tab.Screen name="Categories" component={CategoryStackNavigator} />
