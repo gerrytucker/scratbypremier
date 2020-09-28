@@ -10,7 +10,6 @@ import { styles } from "../styles";
 const Categories = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <CategoryGrid />
       <StatusBar style="light-dark" />
     </SafeAreaView>
   );
