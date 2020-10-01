@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import React, { PureComponent } from "react";
 import { ActivityIndicator } from "react-native";
 import AsyncStorage from "@react-native-community/async-storage";
+=======
+import 'react-native-gesture-handler';
+import React from "react";
+>>>>>>> 160fcb42d2bb82a0ed77ae8c3309f5ea3351382d
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import BottomTabNavigator from "./navigation/TabNavigator";
