@@ -14,7 +14,7 @@ export default class App extends PureComponent {
   async componentDidMount() {
     try {
       const getCategoryData = await fetch(
-        "https://scratbygardencentre.com/wp/wp-json/premier/v2/categories"
+        "https://scratbygardencentre.com/wp-json/premier/v2/categories"
       );
       const responseJSON = await getCategoryData.json();
       await AsyncStorage.setItem("@categories", responseJSON);

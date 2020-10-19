@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 
 const ProductsList = ({ title }) => {
   const [data, loading] = useFetch(
-    "https://scratbygardencentre.com/wp/wp-json/premier/v2/products"
+    "https://scratbygardencentre.com/wp-json/premier/v2/products"
   );
 
   renderItem = ({ item }) => (
